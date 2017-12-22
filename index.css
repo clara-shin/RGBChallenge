@@ -45,10 +45,10 @@ html,body{
 .box {
   width:50px;
   height:50px;
-  border: 1px solid #181818;
   border-radius: 50%;
   cursor: pointer;
   margin-right:10px;
+  transition: transform 0.65s ease;
 }
 
 .modal{
@@ -69,6 +69,9 @@ html,body{
   display: flex;
 }
 
+.box.show{
+  transform:scale(46);
+}
 
 .modal-inner{text-align:center;}
 .modal-inner span{
