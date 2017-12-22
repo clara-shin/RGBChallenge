@@ -22,7 +22,7 @@ function draw() {
     el.style.backgroundColor = problem[index];
   });
   document.querySelector('.rgb-text').textContent = problem[correctAnswer];
-  document.querySelector('.score').textContent= `SCORE: ${stage}`;
+  document.querySelector('.score').textContent= `${stage}`;
 }
 //초기화
 function init() {
