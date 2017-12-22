@@ -7,6 +7,11 @@ html,body{
   padding:0;
   overflow: hidden;
   background: #fff;
+  font-size:10px;
+  font-family: 'Montserrat', sans-serif;
+}
+h1{
+  font-weight:normal;
 }
 .wrap{
   display: flex;
@@ -21,6 +26,7 @@ html,body{
 .top span{
   display: block;
   color:#fff;
+  line-height:1.1;
 }
 .top span:nth-child(2){
   font-size:3em;
@@ -92,4 +98,17 @@ html,body{
   font-size:1.3em;
   cursor: pointer;
   text-transform: uppercase;
+}
+.scoreWrp{
+  text-align: center;
+  color: #fff;
+  font-size: 2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.rgb-text{
+  font-family: 'Source Code Pro', monospace;
+  font-size:26px;
+  font-weight:400;
+  margin-bottom:30px;
 }

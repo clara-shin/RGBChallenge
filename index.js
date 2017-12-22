@@ -4,7 +4,7 @@ function random255() {
 
 
 function randomColor() {
-  return `rgb(${random255()}, ${random255()}, ${random255()})`;
+  return `rgb(${random255()},${random255()},${random255()})`;
 }
 
 let stage;
@@ -22,7 +22,6 @@ function draw() {
     el.style.backgroundColor = problem[index];
   });
   document.querySelector('.rgb-text').textContent = problem[correctAnswer];
-  document.querySelector('.score').textContent= `${stage}`;
 }
 //초기화
 function init() {
@@ -36,17 +35,43 @@ init();
 
 document.querySelectorAll('.box').forEach((el, index) => {
   el.addEventListener('click', e => {
+    el.classList.add('show');
     if (index === correctAnswer) {
-      nextStage();
-      draw();
+        document.querySelector('.correct').classList.add('show');
+          // nextStage();
+          // draw();
+
     }else{
-      init();
-      draw();
+      document.querySelector('.wrong').classList.add('show');
+      // init();
+      // draw();
     }
   });
 });
+document.querySelector('.correct .btn-modal').addEventListener('click', e => {
+  nextStage();
+  draw();
+  document.querySelector('.score').textContent = `${stage}`;
+  document.querySelector('.correct').classList.remove('show');
+  document.querySelectorAll('.box').forEach(el => {
+    el.classList.remove('show');
+  });
+});
 
+document.querySelector('.wrong .btn-modal').addEventListener('click', e => {
+  nextStage();
+  draw();
+  document.querySelector('.score').textContent = 0;
+  document.querySelector('.wrong').classList.remove('show');
+  document.querySelectorAll('.box').forEach(el => {
+    el.classList.remove('show');
+  });
+});
+
+init();
 draw();
 
 //상태를 저장할 저장소 먼저 만들고
 //어떻게 보여질것인지 생각
+
+
