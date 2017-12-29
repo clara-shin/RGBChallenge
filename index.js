@@ -10,9 +10,9 @@ function randomColor() {
 let stage;
 let problem;
 let correctAnswer;
+
 function nextStage() {
   //다음 단계에 대한 상태로 전환
-  stage++;
   problem = [randomColor(), randomColor(), randomColor()];
 }
 
@@ -32,7 +32,7 @@ function init() {
 
 
 init();
-
+let totalScore;
 document.querySelectorAll('.box').forEach((el, index) => {
   el.addEventListener('click', e => {
     el.classList.add('show');
@@ -43,15 +43,17 @@ document.querySelectorAll('.box').forEach((el, index) => {
 
     }else{
       document.querySelector('.wrong').classList.add('show');
+      document.querySelector('.score').textContent = totalScore;
       // init();
       // draw();
     }
   });
 });
 document.querySelector('.correct .btn-modal').addEventListener('click', e => {
+  stage++;
   nextStage();
   draw();
-  document.querySelector('.score').textContent = `${stage}`;
+  document.querySelector('.score').textContent = stage;
   document.querySelector('.correct').classList.remove('show');
   document.querySelectorAll('.box').forEach(el => {
     el.classList.remove('show');
@@ -61,8 +63,10 @@ document.querySelector('.correct .btn-modal').addEventListener('click', e => {
 document.querySelector('.wrong .btn-modal').addEventListener('click', e => {
   nextStage();
   draw();
-  document.querySelector('.score').textContent = 0;
+  stage = 0;
+  document.querySelector('.score').textContent = stage;
   document.querySelector('.wrong').classList.remove('show');
+  // document.querySelector('.total')
   document.querySelectorAll('.box').forEach(el => {
     el.classList.remove('show');
   });
